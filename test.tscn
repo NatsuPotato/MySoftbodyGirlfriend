@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://bmkc7560524m1"]
+[gd_scene load_steps=9 format=3 uid="uid://bmkc7560524m1"]
 
 [ext_resource type="ArrayMesh" uid="uid://npqgx2xdnhol" path="res://blob.obj" id="1_nvdve"]
 [ext_resource type="Texture2D" uid="uid://cqicknynircv0" path="res://icon.svg" id="1_rie2w"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_568bp"]
+albedo_texture = ExtResource("1_rie2w")
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f7tpb"]
-load_path = "res://.godot/imported/Panda_03_1001_BaseColor.png-3d74422a7fd605f45319a157faae0055.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erygb"]
 albedo_texture = SubResource("CompressedTexture2D_f7tpb")
@@ -19,8 +21,9 @@ size = Vector3(2, 0.5, 2)
 
 [node name="World" type="Node3D"]
 
-[node name="SoftBody3D" type="SoftBody3D" parent="."]
+[node name="SoftBody" type="SoftBody3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
+material_override = SubResource("StandardMaterial3D_568bp")
 mesh = ExtResource("1_nvdve")
 surface_material_override/0 = SubResource("StandardMaterial3D_erygb")
 linear_stiffness = 0.85
@@ -36,5 +39,8 @@ mesh = SubResource("PlaneMesh_t33bc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 shape = SubResource("BoxShape3D_rgtdb")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.699516, -0.464751, 0.542849, 0.612666, 0.00100336, 0.790341, -0.367857, 0.885441, 0.284035, 0, 2, 0)
