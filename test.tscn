@@ -1,15 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bmkc7560524m1"]
+[gd_scene load_steps=8 format=3 uid="uid://bmkc7560524m1"]
 
 [ext_resource type="ArrayMesh" uid="uid://npqgx2xdnhol" path="res://blob.obj" id="1_nvdve"]
 [ext_resource type="Texture2D" uid="uid://cqicknynircv0" path="res://icon.svg" id="1_rie2w"]
+[ext_resource type="Script" path="res://test.gd" id="3_8rnoh"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_568bp"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_31m2l"]
 albedo_texture = ExtResource("1_rie2w")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f7tpb"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_erygb"]
-albedo_texture = SubResource("CompressedTexture2D_f7tpb")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wrbt8"]
 albedo_texture = ExtResource("1_rie2w")
@@ -23,11 +19,11 @@ size = Vector3(2, 0.5, 2)
 
 [node name="SoftBody" type="SoftBody3D" parent="."]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 1, 0)
-material_override = SubResource("StandardMaterial3D_568bp")
+material_override = SubResource("StandardMaterial3D_31m2l")
 mesh = ExtResource("1_nvdve")
-surface_material_override/0 = SubResource("StandardMaterial3D_erygb")
 linear_stiffness = 0.85
 pressure_coefficient = 6.41
+script = ExtResource("3_8rnoh")
 
 [node name="Floor" type="StaticBody3D" parent="."]
 
